@@ -15,5 +15,5 @@ mbelib 1.2.3
 
 Example building instructions on Mac OS X:
 
-	make							# Actual program making
-	sudo make install					# Program is installed into computer
+	make
+	sudo make install
