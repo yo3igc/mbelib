@@ -49,7 +49,7 @@ libmbe.a: ecc.o imbe7200x4400.o imbe7100x4400.o ambe3600x2250.o mbelib.o mbelib.
 	$(RANLIB) libmbe.a
 
 libmbe.so.1: ecc.o imbe7200x4400.o imbe7100x4400.o ambe3600x2250.o mbelib.o mbelib.h mbelib_const.h imbe7200x4400_const.h ambe3600x2250_const.h
-	$(CC) -shared -Wl,-soname,libmbe.so.1 -o libmbe.so.1 \
+	$(CC) -shared -Wl,-install_name,libmbe.so.1 -o libmbe.so.1 \
          ecc.o imbe7200x4400.o imbe7100x4400.o ambe3600x2250.o mbelib.o -lc -lm
 
 libmbe.so: libmbe.so.1
@@ -66,7 +66,6 @@ install: libmbe.a libmbe.so.1 libmbe.so
 	$(INSTALL) libmbe.a $(DEST_LIB)
 	$(INSTALL) libmbe.so.1 $(DEST_LIB)
 	$(INSTALL) libmbe.so $(DEST_LIB)
-	$(LDCONFIG) $(DEST_LIB)
 
 uninstall: 
 	rm -f $(DEST_INC)/mbelib.h
